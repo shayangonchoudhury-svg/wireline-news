@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WIRELINE — Global Dispatch Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LIVE WIRE TICKER -->
+<div class="wire-ticker" id="wireTicker">
+  <div class="wire-label">LIVE WIRE</div>
+  <div class="wire-track-wrap">
+    <div class="wire-track" id="wireTrack"></div>
+  </div>
+</div>
+
+<!-- HEADER / MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-top">
+    <div class="masthead-meta" id="dateMeta">— LOADING —</div>
+    <div class="masthead-meta masthead-edition">GLOBAL EDITION · NO. 4,118</div>
+  </div>
+  <div class="masthead-main">
+    <h1 class="masthead-logo">WIRELINE</h1>
+    <p class="masthead-tagline">every dispatch, one desk</p>
+  </div>
+  <nav class="masthead-nav">
+    <button class="nav-pill active" data-filter="all">All Desks</button>
+    <button class="nav-pill" data-filter="world">World</button>
+    <button class="nav-pill" data-filter="tech">Technology</button>
+    <button class="nav-pill" data-filter="markets">Markets</button>
+    <button class="nav-pill" data-filter="science">Science</button>
+    <button class="nav-pill" data-filter="culture">Culture</button>
+    <div class="nav-search">
+      <input type="text" id="searchInput" placeholder="Search the wire…" />
+      <span class="nav-search-icon">⌕</span>
+    </div>
+  </nav>
+</header>
+
+<main class="desk">
+
+  <!-- LEAD STORY -->
+  <section class="lead-section" id="leadSection">
+    <!-- injected by JS -->
+  </section>
+
+  <!-- BENTO GLOBAL GRID -->
+  <section class="bento-section">
+    <div class="section-head">
+      <h2 class="section-title">The Global Desk</h2>
+      <span class="section-sub">dispatches sorted by region, refreshed continuously</span>
+    </div>
+    <div class="bento-grid" id="bentoGrid">
+      <!-- injected by JS -->
+    </div>
+  </section>
+
+  <!-- SOURCE BAND -->
+  <section class="source-band">
+    <span class="source-band-label">AGGREGATING FROM</span>
+    <div class="source-marquee">
+      <div class="source-marquee-track" id="sourceTrack"></div>
+    </div>
+  </section>
+
+  <!-- ARTICLE FEED -->
+  <section class="feed-section">
+    <div class="section-head">
+      <h2 class="section-title">Latest Dispatches</h2>
+      <span class="section-sub" id="resultsCount">showing all stories</span>
+    </div>
+    <div class="feed-grid" id="feedGrid">
+      <!-- injected by JS -->
+    </div>
+    <button class="load-more" id="loadMoreBtn">Load Older Dispatches</button>
+  </section>
+
+  <!-- NEWSLETTER / SIGNAL STRIP -->
+  <section class="signal-strip">
+    <div class="signal-glow"></div>
+    <div class="signal-content">
+      <span class="signal-eyebrow">DAILY SIGNAL</span>
+      <h2 class="signal-title">One dispatch.<br>Every morning, 06:00 UTC.</h2>
+      <p class="signal-copy">A condensed brief of the stories that mattered across every desk — no noise, no duplicates, just the wire.</p>
+      <form class="signal-form" id="signalForm">
+        <input type="email" placeholder="you@domain.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+      <p class="signal-note" id="signalNote">free, cancel anytime</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">WIRELINE</span>
+      <p class="footer-tag">A single desk for a multipolar news cycle.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <span class="footer-col-title">Desks</span>
+        <a href="#">World</a>
+        <a href="#">Technology</a>
+        <a href="#">Markets</a>
+        <a href="#">Science</a>
+        <a href="#">Culture</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Desk Info</span>
+        <a href="#">Sourcing Policy</a>
+        <a href="#">Corrections</a>
+        <a href="#">About Wireline</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <span class="footer-col-title">Standing</span>
+        <a href="#">Status: All Feeds Live</a>
+        <a href="#">API Access</a>
+        <a href="#">RSS</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Wireline Desk. Aggregated dispatches remain property of their originating wires.</span>
+    <span class="footer-clock" id="footerClock">UTC —:—:—</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
