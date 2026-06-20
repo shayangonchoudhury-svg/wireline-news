@@ -4,77 +4,97 @@ let ARTICLES = [];
 /* ============================================
    WIRELINE — data + behavior
    ============================================ */
-const API_KEY = "797dc6ad864883533ea9a58cfa1f6d1c";
+
 
 async function fetchNews(category = "all") {
 
   try {
 
-    let url;
+    let endpoint = "/api/news";
 
-    switch(category){
+    if(category !== "all"){
 
-      case "world":
-
-        url = `https://gnews.io/api/v4/top-headlines?topic=world&lang=en&max=10&apikey=${API_KEY}`;
-
-        break;
-
-      case "tech":
-
-        url = `https://gnews.io/api/v4/top-headlines?topic=technology&lang=en&max=10&apikey=${API_KEY}`;
-
-        break;
-
-      case "markets":
-
-        url = `https://gnews.io/api/v4/top-headlines?topic=business&lang=en&max=10&apikey=${API_KEY}`;
-
-        break;
-
-      case "science":
-
-        url = `https://gnews.io/api/v4/top-headlines?topic=science&lang=en&max=10&apikey=${API_KEY}`;
-
-        break;
-
-      case "culture":
-
-        url = `https://gnews.io/api/v4/top-headlines?topic=entertainment&lang=en&max=10&apikey=${API_KEY}`;
-
-        break;
-
-      default:
-
-        url = `https://gnews.io/api/v4/top-headlines?lang=en&max=30&apikey=${API_KEY}`;
+      endpoint += `?category=${category}`;
 
     }
 
-    const response = await fetch(url);
+    const response = await fetch(endpoint);
 
     const data = await response.json();
 
     ARTICLES = data.articles.map((article,index)=>({
 
-      cat: category === "all" ? "world" : category,
+      cat:
 
-      region: Math.floor(Math.random()*REGIONS.length),
+      category === "all"
 
-      src: Math.floor(Math.random()*SOURCES.length),
+      ? "world"
+
+      : category,
+
+      region:
+
+      Math.floor(
+
+      Math.random()
+
+      * REGIONS.length
+
+      ),
+
+      src:
+
+      Math.floor(
+
+      Math.random()
+
+      * SOURCES.length
+
+      ),
 
       h: article.title,
 
-      d: article.description || "No description available.",
+      d:
 
-      read: Math.floor(Math.random()*5)+2,
+      article.description
 
-      lead: index === 0,
+      ||
 
-      bento: ["lg","md","sm","tall"][Math.floor(Math.random()*4)],
+      "No description available.",
 
-      image: article.image,
+      read:
 
-      url: article.url
+      Math.floor(
+
+      Math.random()*5
+
+      )+2,
+
+      lead:
+
+      index===0,
+
+      bento:
+
+      ["lg","md","sm","tall"]
+
+      [
+
+      Math.floor(
+
+      Math.random()*4
+
+      )
+
+      ],
+
+      image:
+
+      article.image,
+
+      url:
+
+      article.url
 
     }));
 
