@@ -1,40 +1,44 @@
-export default async function handler(req, res){
+export default async function handler(req,res){
 
   try{
 
-    const category = req.query.category || "";
+    const category =
 
-    let topic = "";
+    req.query.category
+
+    || "";
+
+    let topic="";
 
     switch(category){
 
       case "world":
 
-        topic = "world";
+        topic="world";
 
         break;
 
       case "tech":
 
-        topic = "technology";
+        topic="technology";
 
         break;
 
       case "markets":
 
-        topic = "business";
+        topic="business";
 
         break;
 
       case "science":
 
-        topic = "science";
+        topic="science";
 
         break;
 
       case "culture":
 
-        topic = "entertainment";
+        topic="entertainment";
 
         break;
 
@@ -44,7 +48,7 @@ export default async function handler(req, res){
 
     if(topic){
 
-      url =
+      url=
 
 `https://gnews.io/api/v4/top-headlines?topic=${topic}&lang=en&max=10&apikey=${process.env.GNEWS_API_KEY}`;
 
@@ -52,25 +56,35 @@ export default async function handler(req, res){
 
     else{
 
-      url =
+      url=
 
 `https://gnews.io/api/v4/top-headlines?lang=en&max=30&apikey=${process.env.GNEWS_API_KEY}`;
 
     }
 
-    const response = await fetch(url);
+    const response=
 
-    const data = await response.json();
+    await fetch(url);
 
-    res.status(200).json(data);
+    const data=
+
+    await response.json();
+
+    res.status(200)
+
+    .json(data);
 
   }
 
   catch(error){
 
-    res.status(500).json({
+    res.status(500)
 
-      error:"Failed to fetch news"
+    .json({
+
+      error:
+
+      "Unable to fetch news"
 
     });
 
